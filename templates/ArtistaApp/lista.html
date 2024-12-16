@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Artistas</title>
+    <link rel="stylesheet" href="{% static 'css/listaStyle.css' %}">
+</head>
+<body>
+    <div class="title">Lista de Artistas</div>
+    {% if artistas %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Nacionalidad</th>
+                <th>Fecha Nacimiento</th>
+                <th>Canciones Creadas</th>
+                <th>Años Activos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for artista in artistas %}
+            <tr>
+                <td>{{ artista.nombre_artista }}</td>
+                <td>{{ artista.nacionalidad }}</td>
+                <td>{{ artista.fechanacimiento }}</td>
+                <td>{{ artista.cancionescreada }}</td>
+                <td>{{ artista.aniosactivo }}</td>
+                <td>
+                    <a href="../eliminarArtista/{{artista.id}}" class="btn delete">Eliminar</a>
+                    <a href="../actualizarArtista/{{artista.id}}" class="btn update">Actualizar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% else %}
+    <div class="no-artists">
+        <strong>No se encontraron artistas</strong>
+    </div>
+    {% endif %}
+    <a href="http://127.0.0.1:8000/agregar/" class="nav-link">Registrar Artista</a>
+    <a href="http://127.0.0.1:8000/" class="nav-link">Volver</a>
+</body>
+</html>

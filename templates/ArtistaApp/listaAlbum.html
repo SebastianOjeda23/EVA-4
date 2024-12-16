@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/listaStyle.css' %}">
+    <title>Lista de Álbumes</title>
+</head>
+<body>
+    <div>Lista de álbumes</div>
+    {% if albumes %}
+    <table>
+        <thead>
+            <tr>
+                <th>Título del álbum</th>
+                <th>Fecha de lanzamiento</th>
+                <th>Género del álbum</th>
+                <th>Discográfica</th>
+                <th>Número de canciones</th>
+                <th>Nombre de la canción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in albumes %}
+            <tr>
+                <td>{{ album.titulo_album }}</td>
+                <td>{{ album.fecha_lanzamiento }}</td>
+                <td>{{ album.genero_album }}</td>
+                <td>{{ album.discografica }}</td>
+                <td>{{ album.numero_de_canciones }}</td>
+                <td>{{ album.nombre.nombre }}</td>
+                <td>
+                    <a href="../actualizaAlbum/{{ album.id }}">Actualizar</a>
+                    <a href="../eliminarAlbum/{{ album.id }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>
+        <strong>NO SE ENCONTRARON DATOS</strong>
+    </div>
+    {% endif %}
+    <a href="http://127.0.0.1:8000/agregaAlbum/" class="nav-link">Registrar Álbum</a>
+    <a href="http://127.0.0.1:8000/" class="nav-link">Volver</a>
+</body>
+</html>

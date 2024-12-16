@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Artista</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Agregar un artista</h1>
+        <form method="post" class="artist-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if form.errors %}
+                <div class="form-errors">
+                    <ul>
+                        {% for field, errors in form.errors.items %}
+                            <li><strong>{{ field }}:</strong> {{ errors|join:", " }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <input type="submit" value="Registrar artista" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>

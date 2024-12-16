@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn, .nav-link, a {
+    display: inline-block;
+    width: 200px;
+    padding: 12px;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #4CAF50; 
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
+.btn:hover, .nav-link:hover, a:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active, .nav-link:active, a:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn.delete {
+    background-color: #dc3545;
+}
+
+.btn.delete:hover {
+    background-color: #c82333;
+}
+
+.btn.update {
+    background-color: #28a745;
+}
+
+.btn.update:hover {
+    background-color: #218838;
+}
+
+
+.table-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+th, td {
+    padding: 13px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.no-artists {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+}

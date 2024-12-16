@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/musicalistaStyle.css '%}">
+    <title>Lista de Música</title>
+</head>
+<body>
+    <div>Lista de Música</div>
+    {% if musicas %}
+    <table>
+        <thead>
+            <tr>
+                <td>Nombre música</td>
+                <td>Distribuidora</td>
+                <td>Duración</td>
+                <td>Número de reproducciones</td>
+                <td>Fecha de lanzamiento</td>
+                <td>Nombre del artista</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for musica in musicas %}
+            <tr>
+              <td>{{ musica.nombre }}</td>  
+              <td>{{ musica.distribuidora }}</td>
+              <td>{{ musica.duracion }}</td>
+              <td>{{ musica.num_reproducciones }}</td>
+              <td>{{ musica.fecha_lanzamiento }}</td>
+              <td>{{ musica.nombre_artista.nombre_artista }}</td> 
+              <td>
+                <a href="../actualizaMusica/{{musica.id}}">Actualizar</a>
+                <a href="../eliminaMusica/{{musica.id}}">Eliminar</a>
+              </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div>
+        <strong>No se encontraron músicas.</strong>
+    </div>
+    {% endif %}
+        <a href="http://127.0.0.1:8000/agregaMusica" class="nav-link">Registra música</a>
+        <a href="http://127.0.0.1:8000/" class="nav-link">Volver</a>
+
+</body>
+</html>
